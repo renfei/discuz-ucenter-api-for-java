@@ -20,5 +20,5 @@
 ```
 
 如果你使用的是传统方式，需要下载```Jar```包，放入```lib```文件夹，下载地址：[discuz-ucenter-api-for-java-1.0.0.jar
-](https://github-production-registry-package-file-4f11e5.s3.amazonaws.com/321956565/65f03080-4085-11eb-8339-7a55b7caa537?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20201217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201217T083627Z&X-Amz-Expires=300&X-Amz-Signature=f3713e35ed17befac6b1dea62bcc5b7bd693795b332f6d5cae2110718665cd94&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=0&response-content-disposition=filename%3Ddiscuz-ucenter-api-for-java-1.0.0.jar&response-content-type=application%2Foctet-stream)
+](https://github.com/renfei/discuz-ucenter-api-for-java/releases/download/1.0.0/discuz-ucenter-api-for-java-1.0.0.jar)
 
