@@ -1,6 +1,9 @@
 # discuz-ucenter-api-for-java
+<a href="https://search.maven.org/search?q=g:%22net.renfei%22%20AND%20a:%22discuz-ucenter-api-for-java%22" target="_blank"><img src="https://img.shields.io/maven-central/v/net.renfei/discuz-ucenter-api-for-java.svg?label=Maven%20Central" alt="Latest Stable Version"/></a>
 
 最完美的Discuz UCenter的JAVA API接口，简单易用，完全免费！
+
+
 
 ### 说明
 
