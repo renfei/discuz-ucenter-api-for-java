@@ -25,3 +25,66 @@
 如果你使用的是传统方式，需要下载```Jar```包，放入```lib```文件夹，下载地址：[discuz-ucenter-api-for-java-1.0.0.jar
 ](https://github.com/renfei/discuz-ucenter-api-for-java/releases/download/1.0.0/discuz-ucenter-api-for-java-1.0.0.jar)
 
+## 使用
+
+为了跟```SpringBoot```更好的集成，我对原项目进行了修改，原项目是修改配置文件，我修改为了实例化时传递参数的方式
+
+### 实例化
+
+实例化一个客户端```net.renfei.discuz.ucenter.client.Client```，参数依次是：UCenter接口地址、IP地址、通讯Key、Connect。
+
+```java
+Client client = new Client("http://localhost/uc_server", null, "key", "2","");
+```
+
+#### 注册
+```java
+Client client = new Client("http://localhost/uc_server", null, "key", "2","");
+String string = client.uc_user_register("username","password","email");
+```
+
+#### 登陆
+```java
+Client client = new Client("http://localhost/uc_server", null, "key", "2","");
+String string = client.ucUserLogin("username","password");
+```
+
+#### 同步登陆
+```java
+Client client = new Client("http://localhost/uc_server", null, "key", "2","");
+int UID = 21; //此处是用户的UID
+String string = client.ucUserSynlogin(uid);
+```
+
+#### 先登陆再同步登陆
+```java
+Client client = new Client("http://localhost/uc_server", null, "key", "2","");
+// 登陆
+String result = client.ucUserLogin(uid);
+LinkedList<String> rs = XMLHelper.ucUnserialize(result);
+if(rs.size() > 0){
+	int uid = Integer.parseInt(rs.get(0));
+	String username = rs.get(1);
+	String password = rs.get(2);
+	String email = rs.get(3);
+	if(uid > 0) {
+		//同步登陆
+		String string = client.ucUserSynlogin(uid);
+		//本地登陆代码
+		//TODO ... ....
+	} else if(uid == -1) {
+		System.out.println("用户不存在,或者被删除");
+	} else if(uid == -2) {
+		System.out.println("密码错");
+	} else {
+		System.out.println("未定义");
+	}
+}else{
+	System.out.println("Login failed");
+	System.out.println(result);
+}
+```
+
+## 更多信息
+
+更多信息请阅读源代码，此处不再一一演示。
