@@ -31,7 +31,7 @@
 
 ### 实例化
 
-实例化一个客户端```net.renfei.discuz.ucenter.client.Client```，参数依次是：UCenter接口地址、IP地址、通讯Key、Connect。
+实例化一个客户端```net.renfei.discuz.ucenter.client.Client```，参数依次是：UCenter接口地址、IP地址、通讯Key、APPID、Connect。
 
 ```java
 Client client = new Client("http://localhost/uc_server", null, "key", "2","");
