@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.Socket;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -275,9 +276,14 @@ public class Client extends PHPFunctions {
         }
 
         if (operation.equals("DECODE")) {
-            String result = result1.substring(0, result1.length());
-            if ((Integer.parseInt(substr(result.toString(), 0, 10)) == 0 || Long.parseLong(substr(result.toString(), 0, 10)) - time() > 0) && substr(result.toString(), 10, 16).equals(substr(md5(substr(result.toString(), 26) + keyb), 0, 16))) {
-                return substr(result.toString(), 26);
+            String result= result1.toString();
+            try{
+                result=new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+            }catch (Exception e) {
+                result = result1.substring(0, result1.length());
+            }
+            if ((Integer.parseInt(substr(result, 0, 10)) == 0 || Long.parseLong(substr(result, 0, 10)) - time() > 0) && substr(result, 10, 16).equals(substr(md5(substr(result, 26) + keyb), 0, 16))) {
+                return substr(result, 26);
             } else {
                 return "";
             }
