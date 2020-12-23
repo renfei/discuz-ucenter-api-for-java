@@ -121,6 +121,7 @@ public class UCClient {
             Cookie user = new Cookie("loginuser", getMap.get("username"));
             user.setMaxAge(cookietime);
             response.addCookie(user);
+            response.setHeader("content-type","application/javascript");
 
         } else if ("synlogout".equals(action)) {
 
@@ -136,6 +137,7 @@ public class UCClient {
             Cookie user = new Cookie("loginuser", "");
             user.setMaxAge(0);
             response.addCookie(user);
+            response.setHeader("content-type","application/javascript");
 
         } else if ("updateclient".equals(action)) {
 
