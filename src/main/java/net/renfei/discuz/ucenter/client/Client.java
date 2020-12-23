@@ -11,7 +11,6 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 /**
  * ================================================
@@ -395,7 +394,7 @@ public class Client extends PHPFunctions {
     }
 
     public String ucAppLs() {
-        String returnString = call_user_func(UC_API_FUNC, "app", "ls", null);
+        String returnString = callUserFunc(UC_API_FUNC, "app", "ls", null);
         return UC_CONNECT.equals("mysql") ? returnString : ucUnserialize(returnString);
     }
 
@@ -414,8 +413,8 @@ public class Client extends PHPFunctions {
      * -6 : 该 email 已经被注册
      * >1 : 表示成功，数值为 UID
      */
-    public String uc_user_register(String username, String password, String email) {
-        return uc_user_register(username, password, email, "", "");
+    public String ucUserRegister(String username, String password, String email) {
+        return ucUserRegister(username, password, email, "", "");
     }
 
     /**
@@ -435,14 +434,14 @@ public class Client extends PHPFunctions {
      * -6 : 该 email 已经被注册
      * >1 : 表示成功，数值为 UID
      */
-    public String uc_user_register(String username, String password, String email, String questionid, String answer) {
+    public String ucUserRegister(String username, String password, String email, String questionid, String answer) {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put("username", username);
         args.put("password", password);
         args.put("email", email);
         args.put("questionid", questionid);
         args.put("answer", answer);
-        return call_user_func(UC_API_FUNC, "user", "register", args);
+        return callUserFunc(UC_API_FUNC, "user", "register", args);
     }
 
     /**
@@ -500,7 +499,7 @@ public class Client extends PHPFunctions {
         args.put("checkques", checkques);
         args.put("questionid", questionid);
         args.put("answer", answer);
-        String returnString = call_user_func(UC_API_FUNC, "user", "login", args);
+        String returnString = callUserFunc(UC_API_FUNC, "user", "login", args);
         return UC_CONNECT.equals("mysql") ? returnString : ucUnserialize(returnString);
     }
 
@@ -538,7 +537,7 @@ public class Client extends PHPFunctions {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put("username", username);
         args.put("isuid", isuid);
-        String returnString = call_user_func(UC_API_FUNC, "user", "get_user", args);
+        String returnString = callUserFunc(UC_API_FUNC, "user", "get_user", args);
         return UC_CONNECT.equals("mysql") ? returnString : ucUnserialize(returnString);
     }
 
@@ -571,7 +570,7 @@ public class Client extends PHPFunctions {
         args.put("ignoreoldpw", ignoreoldpw);
         args.put("questionid", questionid);
         args.put("answer", answer);
-        return call_user_func(UC_API_FUNC, "user", "edit", args);
+        return callUserFunc(UC_API_FUNC, "user", "edit", args);
     }
 
     /**
@@ -585,7 +584,7 @@ public class Client extends PHPFunctions {
     public String ucUserDelete(String uid) {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put("uid", uid);
-        return call_user_func(UC_API_FUNC, "user", "delete", args);
+        return callUserFunc(UC_API_FUNC, "user", "delete", args);
     }
 
     /**

@@ -25,11 +25,11 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Client uc = new Client("http://localhost/uc_server",null,"mykey","2","");
-		testLogin(uc);
+		Client uc = new Client("http://localhost/uc_server",null,"123456","3","");
+//		testLogin(uc);
 //		synlogin(uc);
-//		String s = uc.ucAuthcode("8485m7QEfsvnOg9tKGvAsxlwXpAzZU6LhFA04pD6N0XIYG1cJVDh2Th83Qcci130UPHbXp+UNG0","DECODE");
-//		System.out.println(s);
+		String s = uc.ucAuthcode("8485m7QEfsvnOg9tKGvAsxlwXpAzZU6LhFA04pD6N0XIYG1cJVDh2Th83Qcci130UPHbXp+UNG0","DECODE");
+		System.out.println(s);
 	
 	}
 
@@ -79,7 +79,7 @@ public class Test {
 
 		//setcookie('Example_auth', '', -86400);
 //		生成同步退出的代码
-		String returns = uc.uc_user_register("cccc", "ccccc" ,"ccc@abc.com" );
+		String returns = uc.ucUserRegister("cccc", "ccccc" ,"ccc@abc.com" );
 		int uid = Integer.parseInt(returns);
 		if(uid <= 0) {
 			if(uid == -1) {
