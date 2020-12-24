@@ -11,6 +11,10 @@
 
 由于原有项目已经非常古老了，看时间应该是2009年的产物，但现在的项目都使用```Maven```和```SpringBoot```进行构建，里面直接配置```servlet```的方式不太适合现代项目集成，我就拿来进行了一些修改，让使用```Maven```和```SpringBoot```的程序更容易集成进去。
 
+#### 必要条件
+
+您的项目环境需要是```JDK1.8```以上。其中```Base64```使用了```Java8```自带的库实现，移除了原作者自己写的```Base64```算法。同时我的编译环境也是在```Java8```中编译发布的。
+
 ## 安装
 
 我使用的是```Maven```和```SpringBoot```进行演示。在```pom.xml```文件中添加依赖：
@@ -37,10 +41,33 @@
 Client client = new Client("http://localhost/uc_server", null, "key", "2","");
 ```
 
+### 客户端
+
+旧的源代码中是通过配置文件注册一个```servlet```，我改造的是用于```SpringBoot```项目的，所以通过配置文件注册```servlet```不是很方便，而且为了尽量降低代码入侵性，我就改为自己使用```Controller```处理```HttpServletRequest```和```HttpServletResponse```的方式。
+
+先创建一个```Controller```，然后创建一个处理```HttpServletRequest```和```HttpServletResponse```的方法，给一个```UCenter```请求的地址```@RequestMapping("/api/uc.php")```，实例化一个客户端```net.renfei.discuz.ucenter.api.UCClient```和```net.renfei.discuz.ucenter.client.Client```，然后把```HttpServletRequest```交给```net.renfei.discuz.ucenter.api.UCClient.doAnswer()```去处理，最后将结果写入```HttpServletResponse```，如果```UCenter```配置正确，就应该可以在```UCenter```看到通讯正常了。具体使用如下案例：
+
+```Java
+@Controller
+public class UCenterController {
+
+    @ResponseBody
+    @RequestMapping("/api/uc.php")
+    public void uc(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        UCClient ucClient = new UCClient();
+        Client client = new Client("http://localhost/uc_server", null, "key", "2","");
+        String result = ucClient.doAnswer(client, request, response);
+        response.getWriter().print(result);
+    }
+}
+```
+
+如果您想自己处理一些动作的逻辑，只需要继承```net.renfei.discuz.ucenter.api.UCClient```然后重写覆盖里面的```doAnswer(Client client, HttpServletRequest request, HttpServletResponse response)```方法即可。
+
 #### 注册
 ```java
 Client client = new Client("http://localhost/uc_server", null, "key", "2","");
-String string = client.uc_user_register("username","password","email");
+String string = client.ucUserRegister("username","password","email");
 ```
 
 #### 登陆
