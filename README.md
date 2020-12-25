@@ -3,7 +3,9 @@
 
 最完美的Discuz UCenter的JAVA API接口，简单易用，完全免费！
 
+相关博文：[https://www.renfei.net/posts/1003429](https://www.renfei.net/posts/1003429)
 
+社区论坛：[https://bbs.renfei.net/forum-44-1.html](https://bbs.renfei.net/forum-44-1.html)
 
 ### 说明
 
@@ -114,4 +116,4 @@ if(rs.size() > 0){
 
 ## 更多信息
 
-更多信息请阅读源代码，此处不再一一演示。
+更多信息请阅读源代码，此处不再一一演示。您可以提出[issues](https://github.com/renfei/discuz-ucenter-api-for-java/issues)或者到我的社区论坛一起讨论：[https://bbs.renfei.net/forum-44-1.html](https://bbs.renfei.net/forum-44-1.html)
