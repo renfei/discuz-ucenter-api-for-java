@@ -24,12 +24,12 @@
 <dependency>
   <groupId>net.renfei</groupId>
   <artifactId>discuz-ucenter-api-for-java</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
 </dependency>
 ```
 
-如果你使用的是传统方式，需要下载```Jar```包，放入```lib```文件夹，下载地址：[discuz-ucenter-api-for-java-1.0.2.jar
-](https://github.com/renfei/discuz-ucenter-api-for-java/releases/download/1.0.2/discuz-ucenter-api-for-java-1.0.2.jar)
+如果你使用的是传统方式，需要下载```Jar```包，放入```lib```文件夹，下载地址：[discuz-ucenter-api-for-java-1.0.3.jar
+](https://github.com/renfei/discuz-ucenter-api-for-java/releases/download/1.0.3/discuz-ucenter-api-for-java-1.0.3.jar)
 
 ## 使用
 
