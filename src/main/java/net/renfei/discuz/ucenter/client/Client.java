@@ -275,10 +275,10 @@ public class Client extends PHPFunctions {
         }
 
         if (operation.equals("DECODE")) {
-            String result= result1.toString();
-            try{
-                result=new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
-            }catch (Exception e) {
+            String result = result1.toString();
+            try {
+                result = new String(result.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+            } catch (Exception e) {
                 result = result1.substring(0, result1.length());
             }
             if ((Integer.parseInt(substr(result, 0, 10)) == 0 || Long.parseLong(substr(result, 0, 10)) - time() > 0) && substr(result, 10, 16).equals(substr(md5(substr(result, 26) + keyb), 0, 16))) {
@@ -315,7 +315,7 @@ public class Client extends PHPFunctions {
     }
 
     protected String ucFopen(String url, int limit, String post, String cookie, boolean bysocket, String ip, int timeout, boolean block) {
-        String returnString = "";
+        StringBuilder returnString = new StringBuilder();
 
         URL matches;
         String host = "";
@@ -360,6 +360,8 @@ public class Client extends PHPFunctions {
         try {
             Socket fp = new Socket(ip != null && ip.length() > 10 ? ip : host, port);
             if (!fp.isConnected()) {
+                System.out.println("net.renfei.discuz.ucenter.client.Client.ucFopen:\n"
+                        + "Socket Not Connected\n");
                 return "";//note errstr : errno \r\n
             } else {
 
@@ -369,10 +371,13 @@ public class Client extends PHPFunctions {
                 InputStream ins = fp.getInputStream();
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(ins));
+                StringBuilder header = new StringBuilder();
                 while (true) {
-                    String header = reader.readLine();
-                    if (header == null || header.equals("") || header == "\r\n" || header == "\n") {
+                    String data = reader.readLine();
+                    if (data == null || "".equals(data) || "\r\n".equals(data) || "\n".equals(data)) {
                         break;
+                    } else {
+                        header.append(data);
                     }
                 }
 
@@ -381,16 +386,19 @@ public class Client extends PHPFunctions {
                     if (data == null || data.equals("")) {
                         break;
                     } else {
-                        returnString += data;
+                        returnString.append(data);
                     }
                 }
+                System.out.println("net.renfei.discuz.ucenter.client.Client.ucFopen:\n"
+                        + header.toString() + "\n\n"
+                        + returnString + "\n");
 
                 fp.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return returnString;
+        return returnString.toString();
     }
 
     public String ucAppLs() {
