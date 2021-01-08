@@ -1,4 +1,6 @@
 # discuz-ucenter-api-for-java
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frenfei%2Fdiscuz-ucenter-api-for-java.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Frenfei%2Fdiscuz-ucenter-api-for-java?ref=badge_shield)
+
 <a href="https://search.maven.org/search?q=g:%22net.renfei%22%20AND%20a:%22discuz-ucenter-api-for-java%22" target="_blank"><img src="https://img.shields.io/maven-central/v/net.renfei/discuz-ucenter-api-for-java.svg?label=Maven%20Central" alt="Latest Stable Version"/></a>
 
 最完美的Discuz UCenter的JAVA API接口，简单易用，完全免费！
@@ -18,6 +20,9 @@
 GPLv2具有很强的传染性，选用这个开源协议并不是我定的，而是原项目作者在开源时就选用了 GPLv2，我也只能跟随原开源协议继续传染下去。
 
 当然，如果您并不注重什么版权协议，那可以无视。
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frenfei%2Fdiscuz-ucenter-api-for-java.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Frenfei%2Fdiscuz-ucenter-api-for-java?ref=badge_large)
 
 #### 必要条件
 
