@@ -1,7 +1,6 @@
 # discuz-ucenter-api-for-java
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frenfei%2Fdiscuz-ucenter-api-for-java.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Frenfei%2Fdiscuz-ucenter-api-for-java?ref=badge_shield)
 
-<a href="https://search.maven.org/search?q=g:%22net.renfei%22%20AND%20a:%22discuz-ucenter-api-for-java%22" target="_blank"><img src="https://img.shields.io/maven-central/v/net.renfei/discuz-ucenter-api-for-java.svg?label=Maven%20Central" alt="Latest Stable Version"/></a>
+<a href="https://search.maven.org/search?q=g:%22net.renfei%22%20AND%20a:%22discuz-ucenter-api-for-java%22" target="_blank"><img src="https://img.shields.io/maven-central/v/net.renfei/discuz-ucenter-api-for-java.svg?label=Maven%20Central" alt="Latest Stable Version"/></a>[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frenfei%2Fdiscuz-ucenter-api-for-java.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Frenfei%2Fdiscuz-ucenter-api-for-java?ref=badge_shield)
 
 最完美的Discuz UCenter的JAVA API接口，简单易用，完全免费！
 
@@ -9,7 +8,7 @@
 
 社区论坛：[https://bbs.renfei.net/forum-44-1.html](https://bbs.renfei.net/forum-44-1.html)
 
-### 说明
+## 说明
 
 此项目移植自[https://code.google.com/archive/p/discuz-ucenter-api-for-java](https://code.google.com/archive/p/discuz-ucenter-api-for-java) / [https://github.com/liangping/dzclient4j](https://github.com/liangping/dzclient4j)，感谢原作者[梁平 (no_ten@163.com)](https://github.com/liangping)将他的代码开源。
 
@@ -21,8 +20,11 @@ GPLv2具有很强的传染性，选用这个开源协议并不是我定的，而
 
 当然，如果您并不注重什么版权协议，那可以无视。
 
-
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frenfei%2Fdiscuz-ucenter-api-for-java.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Frenfei%2Fdiscuz-ucenter-api-for-java?ref=badge_large)
+
+#### 关于程序包名修改
+
+也许您注意到源程序的程序包名由```com.fivestars```被我改为了```net.renfei.discuz.ucenter```，这是因为要发布到Maven中央仓库，在注册Maven中央仓库的时候会要求验证域名所有权，并且数字签名，所以我只能发布```net.renfei```的库，为了在项目中不产生混淆，我就直接将源码中的包名也一起统一修改了。
 
 #### 必要条件
 
