@@ -1,5 +1,7 @@
 package net.renfei.discuz.ucenter.client;
 
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -317,7 +319,7 @@ public class Client extends PHPFunctions {
     protected String ucFopen(String url, int limit, String post, String cookie, boolean bysocket, String ip, int timeout, boolean block) {
         StringBuilder returnString = new StringBuilder();
 
-        URL matches;
+        URL matches = null;
         String host = "";
         String path = "";
         int port = 80;
@@ -337,7 +339,7 @@ public class Client extends PHPFunctions {
 
         StringBuffer out = new StringBuffer();
         if (post != null && post.length() > 0) {
-            out.append("POST ").append(path).append(" HTTP/1.0\r\n");
+            out.append("POST ").append(path).append(" HTTP/1.1\r\n");
             out.append("Accept: */*\r\n");
             out.append("Accept-Language: zh-cn\r\n");
             out.append("Content-Type: application/x-www-form-urlencoded\r\n");
@@ -349,7 +351,7 @@ public class Client extends PHPFunctions {
             out.append("Cookie: \r\n\r\n");
             out.append(post);
         } else {
-            out.append("GET path HTTP/1.0\r\n");
+            out.append("GET path HTTP/1.1\r\n");
             out.append("Accept: */*\r\n");
             //out .= "Referer: boardurl\r\n";
             out.append("Accept-Language: zh-cn\r\n");
@@ -360,7 +362,13 @@ public class Client extends PHPFunctions {
         }
 
         try {
-            Socket fp = new Socket(ip != null && ip.length() > 10 ? ip : host, port);
+            Socket fp = null;
+            String socketHost = ip != null && ip.length() > 10 ? ip : host;
+            if ("https".equals(matches.getProtocol().toLowerCase())) {
+                fp = SSLSocketFactory.getDefault().createSocket(socketHost, port);
+            } else {
+                fp = new Socket(socketHost, port);
+            }
             if (!fp.isConnected()) {
                 System.out.println("net.renfei.discuz.ucenter.client.Client.ucFopen:\n"
                         + "Socket Not Connected\n");
