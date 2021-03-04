@@ -25,13 +25,11 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-//		Client uc = new Client("https://bbs.renfei.net/uc_server",null,"123456","2","");
-		Client uc = new Client("https://bbs.afuiot.com/uc_server",null,"123456","6","");
+		Client uc = new Client("http://localhost/uc_server",null,"mykey","2","");
 		testLogin(uc);
 //		synlogin(uc);
-		String s = uc.ucAuthcode("8485m7QEfsvnOg9tKGvAsxlwXpAzZU6LhFA04pD6N0XIYG1cJVDh2Th83Qcci130UPHbXp+UNG0","DECODE");
-		System.out.println(s);
-	
+//		String s = uc.ucAuthcode("8485m7QEfsvnOg9tKGvAsxlwXpAzZU6LhFA04pD6N0XIYG1cJVDh2Th83Qcci130UPHbXp+UNG0","DECODE");
+//		System.out.println(s);
 	}
 
 	public static void synlogin(Client client){
@@ -41,7 +39,7 @@ public class Test {
 	}
 	
 	public static void testLogin(Client client){
-		String result = client.ucUserLogin("renfei", "1123");
+		String result = client.ucUserLogin("renfei", "password");
 		
 		LinkedList<String> rs = XMLHelper.ucUnserialize(result);
 		if(rs.size()>0){

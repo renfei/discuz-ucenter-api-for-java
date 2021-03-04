@@ -339,7 +339,7 @@ public class Client extends PHPFunctions {
 
         StringBuffer out = new StringBuffer();
         if (post != null && post.length() > 0) {
-            out.append("POST ").append(path).append(" HTTP/1.1\r\n");
+            out.append("POST ").append(path).append(" HTTP/1.0\r\n");
             out.append("Accept: */*\r\n");
             out.append("Accept-Language: zh-cn\r\n");
             out.append("Content-Type: application/x-www-form-urlencoded\r\n");
@@ -351,7 +351,7 @@ public class Client extends PHPFunctions {
             out.append("Cookie: \r\n\r\n");
             out.append(post);
         } else {
-            out.append("GET path HTTP/1.1\r\n");
+            out.append("GET path HTTP/1.0\r\n");
             out.append("Accept: */*\r\n");
             //out .= "Referer: boardurl\r\n";
             out.append("Accept-Language: zh-cn\r\n");
