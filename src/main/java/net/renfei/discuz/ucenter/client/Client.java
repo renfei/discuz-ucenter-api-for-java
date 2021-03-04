@@ -327,6 +327,8 @@ public class Client extends PHPFunctions {
             path = matches.getPath() != null ? matches.getPath() + (matches.getQuery() != null ? "?" + matches.getQuery() : "") : "/";
             if (matches.getPort() > 0) {
                 port = matches.getPort();
+            } else if ("https".equals(matches.getProtocol().toLowerCase())) {
+                port = 443;
             }
         } catch (MalformedURLException e1) {
             e1.printStackTrace();
