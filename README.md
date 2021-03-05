@@ -142,3 +142,7 @@ if(rs.size() > 0){
 ## 更多信息
 
 更多信息请阅读源代码，此处不再一一演示。您可以提出[issues](https://github.com/renfei/discuz-ucenter-api-for-java/issues)或者到我的社区论坛一起讨论：[https://bbs.renfei.net/forum-44-1.html](https://bbs.renfei.net/forum-44-1.html)
+
+## 求鼓励
+
+如果这个项目帮助到了你，是否能给我点个免费的星星 (Star) 给个鼓励呢。高星项目我将持续关注努力更新的。
