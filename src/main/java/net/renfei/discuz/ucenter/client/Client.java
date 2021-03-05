@@ -26,7 +26,7 @@ import java.util.Map;
  * 创建时间：2009-2-20
  * 更多信息：https://github.com/renfei/discuz-ucenter-api-for-java
  * 修改者：任霏 (i@renfei.net)
- * 修改时间：2020-12-17
+ * 修改时间：2021-03-04
  */
 public class Client extends PHPFunctions {
 
@@ -370,8 +370,13 @@ public class Client extends PHPFunctions {
                 fp = new Socket(socketHost, port);
             }
             if (!fp.isConnected()) {
-                System.out.println("net.renfei.discuz.ucenter.client.Client.ucFopen:\n"
-                        + "Socket Not Connected\n");
+                System.out.println("[ERROR]----------------------------------"
+                        + "\nnet.renfei.discuz.ucenter.client.Client.ucFopen:"
+                        + " Socket Not Connected!"
+                        + "\nSocketHost:" + socketHost
+                        + "\nSocketPort:" + port
+                        + "\nProtocol:" + matches.getProtocol()
+                        + "\n");
                 return "";//note errstr : errno \r\n
             } else {
 
@@ -399,9 +404,6 @@ public class Client extends PHPFunctions {
                         returnString.append(data);
                     }
                 }
-                System.out.println("net.renfei.discuz.ucenter.client.Client.ucFopen:\n"
-                        + header.toString() + "\n\n"
-                        + returnString + "\n");
 
                 fp.close();
             }

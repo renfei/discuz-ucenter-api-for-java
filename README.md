@@ -37,19 +37,19 @@ GPLv2具有很强的传染性，选用这个开源协议并不是我定的，而
 <dependency>
   <groupId>net.renfei</groupId>
   <artifactId>discuz-ucenter-api-for-java</artifactId>
-  <version>1.0.6</version>
+  <version>1.0.7</version>
 </dependency>
 ```
 
-如果你使用的是传统方式，需要下载```Jar```包，放入```lib```文件夹，下载地址：[discuz-ucenter-api-for-java-1.0.6.jar
-](https://github.com/renfei/discuz-ucenter-api-for-java/releases/download/1.0.6/discuz-ucenter-api-for-java-1.0.6.jar)
+如果你使用的是传统方式，需要下载```Jar```包，放入```lib```文件夹，下载地址：[discuz-ucenter-api-for-java-1.0.7.jar
+](https://github.com/renfei/discuz-ucenter-api-for-java/releases/download/1.0.7/discuz-ucenter-api-for-java-1.0.7.jar)
 
 ## 使用
 
 为了跟```SpringBoot```更好的集成，我对原项目进行了修改，原项目是修改配置文件，我修改为了实例化时传递参数的方式
 
-## Https(SSL) 站点
-如果你的站点是```https```的，必须使用版本号```1.0.6```以上，旧版本的作者没有考虑```https```，我修改了代码兼容了```https```。
+### Https(SSL) 站点
+如果你的站点是```https```的，必须使用版本号```1.0.6```及以上，旧版本的作者没有考虑```https```，我修改了代码兼容了```https```。
 
 ### 实例化
 

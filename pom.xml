@@ -6,7 +6,7 @@
 
     <groupId>net.renfei</groupId>
     <artifactId>discuz-ucenter-api-for-java</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <packaging>jar</packaging>
     <name>discuz-ucenter-api-for-java</name>
     <url>https://github.com/renfei/discuz-ucenter-api-for-java</url>
